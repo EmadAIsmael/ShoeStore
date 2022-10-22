@@ -1,0 +1,43 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext {
+        // define next two lines in "project structure/variables"
+        kotlin_version = '1.7.10'
+        nav_version = '2.5.2'
+    }
+
+    // ext.kotlin_version = '1.7.20'
+    // ext.nav_version = '2.5.2'           // 1. set to latest version
+    repositories {
+        google()
+        mavenCentral()                  // replace jcentral with mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.3.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // 2. Adding the safe-args dependency to the project Gradle file
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"     // 2
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+// add plugin id "org.jetbrains.kotlin.android" version "1.4.20" apply false
+// to use @Parcelize now that kotlin-android-extensions is being deprecated?
+// all buildscript {} blocks must appear before any plugins {} blocks in the script.
+//
+plugins {
+    id "org.jetbrains.kotlin.android" version "1.4.20" apply false
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()              // replace jcentral with mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
