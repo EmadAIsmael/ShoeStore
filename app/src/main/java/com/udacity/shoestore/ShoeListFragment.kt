@@ -1,5 +1,6 @@
 package com.udacity.shoestore
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -7,6 +8,7 @@ import androidx.core.view.size
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
+import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -75,13 +77,43 @@ class ShoeListFragment : Fragment() {
         inflater.inflate(R.menu.overflow_menu, menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    /*override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // val inflater: MenuInflater = menuInflater
+        val inflater = Activity.getMenuInflater()
+        inflater.inflate(R.menu.overflow_menu, menu)
+        return true
+    }*/
 
-        /*return NavigationUI.onNavDestinationSelected(item,
+
+    /*override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        *//*return NavigationUI.onNavDestinationSelected(item,
             requireView().findNavController())
-                || super.onOptionsItemSelected(item)*/
-        val navController = requireActivity().findNavController(R.id.navHostFragment)
+                || super.onOptionsItemSelected(item)*//*
+
+        *//*val navController = requireActivity().findNavController(R.id.navHostFragment)
         return NavigationUI.onNavDestinationSelected(item, navController) ||
-                super.onOptionsItemSelected(item)
+                super.onOptionsItemSelected(item)*//*
+
+        requireActivity().findNavController(R.id.navHostFragment).navigate(R.id.action_shoeListFragment_to_loginFragment)
+        return true
+    }*/
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.loginFragment -> {
+                requireActivity()
+                    .findNavController(R.id.navHostFragment)
+                    .navigate(R.id.action_shoeListFragment_to_loginFragment)
+                true
+            }
+            /*R.id.help -> {
+                showHelp()
+                true
+            }*/
+            else -> super.onOptionsItemSelected(item)
+        }
     }
+
 }
