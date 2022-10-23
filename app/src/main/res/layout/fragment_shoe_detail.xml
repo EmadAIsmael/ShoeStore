@@ -10,6 +10,8 @@
             type="com.udacity.shoestore.SharedViewModel" />
     </data>
 
+    <!-- good candidate for constraint layout,
+         but I had to meet the deadline for submitting the project -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

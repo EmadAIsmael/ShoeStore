@@ -10,6 +10,8 @@
             type="com.udacity.shoestore.SharedViewModel" />
     </data>-->
 
+    <!-- CardView containing flat linear layouts.
+         no need for constraint layout to flatten the views -->
     <androidx.cardview.widget.CardView
         android:id="@+id/shoe_item_cardview"
         android:layout_width="wrap_content"
